@@ -1,7 +1,6 @@
 library(shiny)
 library(DT)
 library(mcr)
-
   
 ui <- fluidPage(
   titlePanel("Comparación de Métodos"),
