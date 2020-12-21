@@ -1,0 +1,43 @@
+---
+title: "Method Comparison"
+output: pdf_document
+params:
+  method1: method1
+  method2: method2
+  modelo: modelo
+  modelo_cor: modelo_cor
+  cor_method: cor_method
+---
+ 
+# Reporte del Análisis de Comparación entre `r params$method1` vs `r params$method2`
+ 
+## Scatter Plot
+ 
+ 
+```{r, echo = FALSE} 
+ 
+plot(params$modelo,  main = "Regression Comparison", 
+     add.legend=TRUE,identity=TRUE, ci.area=TRUE,add.cor=TRUE, cor.method = params$cor_method)
+
+
+
+```
+
+```{r, echo = FALSE} 
+plotResiduals(params$modelo, res.type="optimized", xaxis="both" )
+```
+
+```{r, echo = FALSE} 
+plotBias(params$modelo, ci.area=TRUE, ci.border=TRUE)
+```
+
+```{r, echo = FALSE} 
+printSummary(params$modelo)
+ 
+``` 
+
+
+```{r, echo = FALSE} 
+params$modelo_cor
+``` 
+
